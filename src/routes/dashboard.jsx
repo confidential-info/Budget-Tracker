@@ -1,10 +1,12 @@
-import { UserButton } from '@clerk/clerk-react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { UserButton } from '@clerk/clerk-react';
 
-export default function DashboardPage() {
+function DashboardPage() {
   return (
     <>
-      <UserButton />
+      Dashboard
     </>
   )
 }
+
+export default DashboardPage;

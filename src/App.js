@@ -10,6 +10,7 @@ import IndexPage from './routes'
 import SignInPage from './routes/sign-in'
 import SignUpPage from './routes/sign-up'
 import DashboardPage from './routes/dashboard'
+import Layout from './routes/Layout';
 
 const router = createBrowserRouter([
   {
@@ -22,7 +23,7 @@ const router = createBrowserRouter([
         element: <DashboardLayout />,
         path: 'dashboard',
         children: [
-          { path: '/dashboard', element: <DashboardPage /> },
+          { index: 'true', element: <DashboardPage /> },
         ],
       },
     ],

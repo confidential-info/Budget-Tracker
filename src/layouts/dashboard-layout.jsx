@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useAuth } from '@clerk/clerk-react';
 import { Outlet, useNavigate } from 'react-router-dom';
+import Layout from '../routes/Layout';
 
 export default function DashboardLayout() {
   const { userId, isLoaded } = useAuth()
@@ -16,5 +17,9 @@ export default function DashboardLayout() {
 
   if (!isLoaded) return 'Loading...'
 
-  return <Outlet />
+  return(
+    <Layout>
+      <Outlet />
+    </Layout>
+    )
 }
