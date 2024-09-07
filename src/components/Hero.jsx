@@ -1,3 +1,4 @@
+//React Import
 import React from 'react'
 
 //Image Import
@@ -25,7 +26,7 @@ function Hero() {
             </div>
             </div>
         </div>
-        <img className="m-5 rounded-xl border-2" src={dashboard} alt="Dashboard Image" />
+        <img className="m-5 rounded-xl border-2" src={dashboard} alt="Dashboard" />
     </section>
   )
 }

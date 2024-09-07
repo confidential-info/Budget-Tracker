@@ -1,7 +1,16 @@
+//React and React-Router-Dom Imports
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+
+//CSS and App.jsx Import
 import './index.css'
 import App from './App'
+
+//React Pop-Up i.e. Toastify 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+//Authorization Import i.e. Clerk
 import { ClerkProvider } from '@clerk/clerk-react'
 
 // Import your publishable key
@@ -19,6 +28,7 @@ root.render(
   <React.StrictMode>
     <ClerkProvider publishableKey={PUBLISHABLE_KEY} afterSignOutUrl="/">
       <App />
+      <ToastContainer />
     </ClerkProvider>
   </React.StrictMode>
 );

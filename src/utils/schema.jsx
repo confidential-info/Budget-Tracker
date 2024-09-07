@@ -1,3 +1,4 @@
+//PostgreSQL Query Import
 import { pgTable, serial, varchar } from "drizzle-orm/pg-core";
 
 export const Budgets = pgTable("budgets",{

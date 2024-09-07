@@ -1,6 +1,9 @@
-import { UserButton } from '@clerk/clerk-react';
+//React and React-Router-Dom Import
 import React, { useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom';
+
+//Authorization Import i.e. Clerk
+import { UserButton } from '@clerk/clerk-react';
 
 function SideNav() {
     const menuList = [
@@ -50,7 +53,7 @@ function SideNav() {
         <div className='mt-5'>
             {menuList.map((menu,index) => (
                 <Link to={menu.path}>
-                <div className={`flex gap-2 items-center text-gray-500 font-medium p-5 cursor-pointer rounded-md justify-start hover:bg-blue-100 hover:text-indigo-700 ${pathName == menu.path&&'text-indigo-500 bg-blue-100'}`}>
+                <div className={`flex gap-2 items-center text-gray-500 font-medium p-5 cursor-pointer rounded-md justify-start hover:bg-blue-100 hover:text-indigo-700 ${pathName === menu.path&&'text-indigo-500 bg-blue-100'}`}>
                     {menu.icon}
                     {menu.name}
                 </div>

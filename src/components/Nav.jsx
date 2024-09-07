@@ -1,11 +1,13 @@
+//React and React-Router-Dom Import 
 import React from 'react'
 import { Link } from 'react-router-dom';
 
+//Authorization Import i.e. Clerk
 import { UserButton, useUser } from '@clerk/clerk-react';
 
 function Nav() {
 
-  const {user,isSignedIn} = useUser();
+  const {user, isSignedIn} = useUser();
   return (
     <header>
         <div className="p-5 flex justify-between border shadow-sm">

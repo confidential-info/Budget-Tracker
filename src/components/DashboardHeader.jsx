@@ -1,5 +1,8 @@
+//React Import
+import React from 'react';
+
+//Authorization Import i.e. Clerk
 import { UserButton } from '@clerk/clerk-react';
-import React from 'react'
 
 function DashboardHeader() {
   return (

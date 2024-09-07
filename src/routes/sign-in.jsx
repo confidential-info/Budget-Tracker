@@ -1,3 +1,4 @@
+//Authorization Import i.e. Clerk
 import { SignIn } from '@clerk/clerk-react'
 
 export default function SignInPage() {

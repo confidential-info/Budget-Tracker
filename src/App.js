@@ -1,3 +1,4 @@
+//React-Rouder-Dom Imports
 import './App.css';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
@@ -10,8 +11,9 @@ import IndexPage from './routes'
 import SignInPage from './routes/sign-in'
 import SignUpPage from './routes/sign-up'
 import DashboardPage from './routes/dashboard'
-import Layout from './routes/Layout';
+import Budgets from './routes/Budgets';
 
+//Routes Definition
 const router = createBrowserRouter([
   {
     element: <RootLayout />,
@@ -24,6 +26,7 @@ const router = createBrowserRouter([
         path: 'dashboard',
         children: [
           { index: 'true', element: <DashboardPage /> },
+          { path: 'budgets', element: <Budgets />}
         ],
       },
     ],
