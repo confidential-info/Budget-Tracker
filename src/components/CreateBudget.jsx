@@ -83,7 +83,7 @@ function CreateBudget() {
             </DialogPanel>
           </div>
         </Dialog>
-        <ToastContainer />
+        <ToastContainer /> 
     </div>
   )
 }
