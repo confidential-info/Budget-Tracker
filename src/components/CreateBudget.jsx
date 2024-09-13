@@ -18,7 +18,7 @@ import { Budgets } from '../utils/schema';
 //Autohrization Import i.e. Clerk
 import { useUser } from '@clerk/clerk-react';
 
-function CreateBudget() {
+function CreateBudget({refreshData}) {
   let [isOpen, setIsOpen] = useState(false);
 
   //State for Toggling Emoji Icons
@@ -40,12 +40,13 @@ function CreateBudget() {
     }).returning({insertedId: Budgets.id});
     if(result)
     {
+      refreshData();
       toast.success('Budget Created Successfully');
     }
   }
   return (
     <div>
-        <button onClick={() => setIsOpen(true)}>
+        <button onClick={() => setIsOpen(true)} className='w-full'>
           <div className='bg-slate-100 p-10 rounded-md flex flex-col items-center border-2 border-dashed cursor-pointer hover:shadow-md'>
               <h2 className='text-3xl'>+</h2>
               <h2>Create New Budget</h2>
@@ -71,15 +72,10 @@ function CreateBudget() {
                   <h2 className='text-sm font-medium my-1'>Budget Amount</h2>
                   <Input name="amount" type="number" placeholder='E.g. ₹5000' className="border-2 w-full p-2 text-sm rounded-lg px-4" onChange={(e)=>setAmount(e.target.value)} />
                 </div>
-                
               </Description>
               <CloseButton>
-              <button disabled={!(name && amount)}  className='mt-5 inline-block rounded border border-indigo-600 bg-indigo-600 px-8 py-3 text-sm font-medium text-white focus:outline-none focus:ring active:text-indigo-500 w-full' onClick={()=>onCreateBudget()} >Create Budget</button>
+                <button disabled={!(name && amount)}  className='mt-5 inline-block rounded border border-indigo-600 bg-indigo-600 px-8 py-3 text-sm font-medium text-white focus:outline-none focus:ring active:text-indigo-500 w-full' onClick={()=>onCreateBudget()} >Create Budget</button>
               </CloseButton>
-              {/* <div className="flex gap-4">
-                <button onClick={() => setIsOpen(false)}>Cancel</button>
-                <button onClick={() => setIsOpen(false)}>Deactivate</button>
-              </div> */}
             </DialogPanel>
           </div>
         </Dialog>
