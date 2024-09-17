@@ -12,6 +12,7 @@ import SignInPage from './routes/sign-in'
 import SignUpPage from './routes/sign-up'
 import DashboardPage from './routes/dashboard'
 import Budgets from './routes/Budgets';
+import ExpensesScreen from './routes/ExpensesScreen';
 
 //Routes Definition
 const router = createBrowserRouter([
@@ -26,7 +27,8 @@ const router = createBrowserRouter([
         path: 'dashboard',
         children: [
           { index: 'true', element: <DashboardPage /> },
-          { path: 'budgets', element: <Budgets />}
+          { path: 'budgets', element: <Budgets />},
+          { path: 'expenses/:id', element: <ExpensesScreen />}
         ],
       },
     ],
