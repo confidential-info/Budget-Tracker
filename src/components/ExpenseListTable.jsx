@@ -5,6 +5,9 @@ import { Expenses } from '../utils/schema';
 import { eq } from 'drizzle-orm';
 import { toast } from 'react-toastify';
 
+//SVG Icon Import i.e. HeroIcon
+import { TrashIcon } from '@heroicons/react/24/outline'
+
 function ExpenseListTable({expensesList, refreshData}) {
     const deleteExpense = async(expenses) => {
         const result = await db.delete(Expenses)
@@ -32,10 +35,7 @@ function ExpenseListTable({expensesList, refreshData}) {
                 <h2>{expenses.amount}</h2>
                 <h2>{expenses.createdAt}</h2>
                 <h2>
-                    {<svg class="w-6 h-6 text-red-6  00 dark:text-red-600 cursor-pointer" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" onClick={() => deleteExpense(expenses)}>
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z"/>
-                    </svg>}
-
+                    <TrashIcon className='size-6 text-red-600' />
                 </h2>
             </div>
         ))}

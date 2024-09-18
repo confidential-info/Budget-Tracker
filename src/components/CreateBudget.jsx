@@ -19,6 +19,7 @@ import { Budgets } from '../utils/schema';
 import { useUser } from '@clerk/clerk-react';
 
 function CreateBudget({refreshData}) {
+  //State for Create Budget Dialog 
   let [isOpen, setIsOpen] = useState(false);
 
   //State for Toggling Emoji Icons

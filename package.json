@@ -5,6 +5,7 @@
   "dependencies": {
     "@clerk/clerk-react": "^5.5.0",
     "@headlessui/react": "^2.1.5",
+    "@heroicons/react": "^2.1.5",
     "@neondatabase/serverless": "^0.9.5",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",

@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 
 //React Router DOM Imports
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 //Database Imports i.e. PostgreSQL
 import { db } from '../utils/dbConfig';
@@ -17,12 +17,30 @@ import BudgetItem from '../components/BudgetItem';
 import AddExpense from '../components/AddExpense';
 import ExpenseListTable from '../components/ExpenseListTable';
 
+//Trash Icon Import
+import { TrashIcon } from '@heroicons/react/24/outline';
+
+//Headless UI Component Import
+import { Description, Dialog, DialogPanel, DialogTitle } from '@headlessui/react'
+import { toast } from 'react-toastify';
+
+
 function ExpensesScreen() {
 
+  //State for Create Budget Dialog 
+  let [isOpen, setIsOpen] = useState(false);
+
+  // To get ID to current path i.e. Dynamic Route UD
   const {id} = useParams();
+
+  //For Clerk Email-ID 
   const {user} = useUser();
+
+  //State for setting Budget-Info and Display budget list
   const [budgetInfo, setBudgetInfo] = useState([]);
   const [expensesList, setExpensesList] = useState([]);
+
+  const route = useNavigate();
 
   useEffect(() => {
       user&&getBudgetInfo();
@@ -52,9 +70,39 @@ function ExpensesScreen() {
     console.log(result);
   }
 
+  const deleteBudget = async() => {
+    const deleteExpenseResult = await db.delete(Expenses)
+    .where(eq(Expenses.budgetId, id))
+    .returning();
+
+    if(deleteExpenseResult)
+    {
+      const result = await db.delete(Budgets)
+      .where(eq(Budgets.id, id))
+      .returning();
+    }
+    
+    toast.success('Budget Deleted !!');
+    route('/dashboard/budgets', { replace: true });
+  }
+
   return (
     <div className='p-8'>
-        <h2 className='text-2xl font-bold'>My Expenses</h2>
+        <h2 className='text-2xl font-bold flex justify-between items-center'>My Expenses
+          <button onClick={() => setIsOpen(true)} className='flex gap-2 rounded border border-red-600 bg-red-600 px-5 py-2 text-sm font-medium text-white hover:bg-transparent hover:text-red-600 focus:outline-none focus:ring active:text-red-500' ><TrashIcon className='size-6' /> Delete</button>
+          <Dialog open={isOpen} onClose={() => setIsOpen(false)} className="relative z-50">
+            <div className="fixed inset-0 flex w-screen items-center justify-center p-4  bg-black bg-opacity-85">
+              <DialogPanel className="max-w-lg space-y-4 border bg-white p-7 rounded-lg">
+                <DialogTitle className="font-bold">Are you absolutely sure ?</DialogTitle>
+                <Description className='text-gray-500'>This action cannot be undone. This will permanently delete your current budget along with expenses.</Description>
+                <div className="flex gap-4 justify-end">
+                  <button className='inline-block text-sm font-medium text-black border border-slate-500 px-4 py-2 rounded' onClick={() => setIsOpen(false)}>Cancel</button>
+                  <button className='inline-block text-sm font-medium text-white border border-indigo-600 bg-indigo-600 px-4 py-2 rounded' onClick={() => deleteBudget()}>Continue</button>
+                </div>
+              </DialogPanel>
+            </div>
+          </Dialog>
+        </h2>
         <div className='grid grid-col-1 md:grid-cols-2 mt-6 gap-5'>
           {budgetInfo ? 
             <BudgetItem budget={budgetInfo} />
