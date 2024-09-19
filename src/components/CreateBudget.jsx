@@ -1,9 +1,9 @@
 //React Import
 import React from 'react';
-import { useState } from 'react'
+import { useState } from 'react';
 
 //Headless UI Component Import
-import { CloseButton, Description, Dialog, DialogPanel, DialogTitle, Input } from '@headlessui/react'
+import { CloseButton, Description, Dialog, DialogPanel, DialogTitle, Input } from '@headlessui/react';
 
 //Emoji Picker Library Import
 import EmojiPicker from 'emoji-picker-react';

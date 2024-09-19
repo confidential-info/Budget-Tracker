@@ -16,6 +16,7 @@ import { useUser } from '@clerk/clerk-react';
 import BudgetItem from '../components/BudgetItem';
 import AddExpense from '../components/AddExpense';
 import ExpenseListTable from '../components/ExpenseListTable';
+import EditBudget from '../components/EditBudget';
 
 //Trash Icon Import
 import { TrashIcon } from '@heroicons/react/24/outline';
@@ -23,7 +24,6 @@ import { TrashIcon } from '@heroicons/react/24/outline';
 //Headless UI Component Import
 import { Description, Dialog, DialogPanel, DialogTitle } from '@headlessui/react'
 import { toast } from 'react-toastify';
-
 
 function ExpensesScreen() {
 
@@ -89,6 +89,8 @@ function ExpensesScreen() {
   return (
     <div className='p-8'>
         <h2 className='text-2xl font-bold flex justify-between items-center'>My Expenses
+        <div className='flex gap-2 items-center'>
+          <EditBudget budgetInfo={budgetInfo} refreshData={() => getBudgetInfo()} />
           <button onClick={() => setIsOpen(true)} className='flex gap-2 rounded border border-red-600 bg-red-600 px-5 py-2 text-sm font-medium text-white hover:bg-transparent hover:text-red-600 focus:outline-none focus:ring active:text-red-500' ><TrashIcon className='size-6' /> Delete</button>
           <Dialog open={isOpen} onClose={() => setIsOpen(false)} className="relative z-50">
             <div className="fixed inset-0 flex w-screen items-center justify-center p-4  bg-black bg-opacity-85">
@@ -102,6 +104,7 @@ function ExpensesScreen() {
               </DialogPanel>
             </div>
           </Dialog>
+        </div>
         </h2>
         <div className='grid grid-col-1 md:grid-cols-2 mt-6 gap-5'>
           {budgetInfo ? 

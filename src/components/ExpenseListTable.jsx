@@ -1,12 +1,16 @@
 //React Imports
 import React from 'react';
+
+//Database Import i.e. PostgreSQL
 import { db } from '../utils/dbConfig';
 import { Expenses } from '../utils/schema';
 import { eq } from 'drizzle-orm';
+
+//Pop-Up Import
 import { toast } from 'react-toastify';
 
 //SVG Icon Import i.e. HeroIcon
-import { TrashIcon } from '@heroicons/react/24/outline'
+import { TrashIcon } from '@heroicons/react/24/outline';
 
 function ExpenseListTable({expensesList, refreshData}) {
     const deleteExpense = async(expenses) => {
@@ -35,7 +39,7 @@ function ExpenseListTable({expensesList, refreshData}) {
                 <h2>{expenses.amount}</h2>
                 <h2>{expenses.createdAt}</h2>
                 <h2>
-                    <TrashIcon className='size-6 text-red-600' />
+                    <TrashIcon className='size-6 text-red-600 cursor-pointer' onClick={() => deleteExpense(expenses)} />
                 </h2>
             </div>
         ))}

@@ -8,7 +8,7 @@ import DashboardHeader from '../components/DashboardHeader';
 //Database Import
 import { eq } from 'drizzle-orm';
 
-//Authorisation Import i.e. Cler
+//Authorisation Import i.e. Clerk
 import { useUser } from '@clerk/clerk-react';
 import { useNavigate } from 'react-router-dom';
 import { db } from '../utils/dbConfig';

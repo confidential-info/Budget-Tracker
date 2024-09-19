@@ -43,7 +43,7 @@ function AddExpense({budgetId, user, refreshData}) {
             <h2 className='text-sm font-medium my-1'>Expense Amount</h2>
             <Input name="amount" type="number" placeholder='E.g. ₹5000' className="border-2 w-full p-2 text-sm rounded-lg px-4" onChange={(e)=>setAmount(e.target.value)} />
         </div>
-        <button disabled={!(name&&amount)} className='mt-3 inline-block rounded border border-indigo-600 bg-indigo-600 px-8 py-3 text-sm font-medium text-white focus:outline-none focus:ring active:text-indigo-500 w-full' onClick={() => addNewExpense()} >Add New Expense</button>
+        <button disabled={!(name&&amount)} className='mt-3 inline-block rounded border border-indigo-600 bg-indigo-600 px-8 py-3 text-sm font-medium text-white focus:outline-none focus:ring active:text-indigo-500 w-full cursor-pointer' onClick={() => addNewExpense()} >Add New Expense</button>
     </div>
   )
 }
