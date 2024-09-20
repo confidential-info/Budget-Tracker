@@ -23,7 +23,7 @@ function EditBudget({budgetInfo, refreshData}) {
     let [isOpen, setIsOpen] = useState(false);
 
    //State for Toggling Emoji Icons
-   const [emojiIcon, setEmojiIcon] = useState(budgetInfo.icon);
+   const [emojiIcon, setEmojiIcon] = useState();
    const [emojiPicker, setEmojiPicker] = useState(false);
  
    //For Storing the Value on Budget Name and Budget Amount
@@ -43,7 +43,7 @@ function EditBudget({budgetInfo, refreshData}) {
     const result = await db.update(Budgets).set({
         name: name,
         amount: amount,
-        icon: emojiIcon
+        icon: emojiIcon,
     }).where(eq(Budgets.id, budgetInfo.id))
     .returning();
 
