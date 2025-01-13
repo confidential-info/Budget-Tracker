@@ -1,70 +1,48 @@
-# Getting Started with Create React App
+# Budget-Tracker App
+This is an Budget Tracker App developed in React, React-Router, Tailwind CSS and Heroicons.
+Clerk is used for user authorizatrion and Drizzle ORM with Neon (for Postgre SQL).
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Features
+1. Personalized Dashboard for each user with user login available thorugh "Google Login" and "Facebook Login".
+2. New Budget creation and Edit and Delete feature for each budget.
+3. Chart representation for each budget i.e. Budget and Total Spent.
+4. Responsive UI
 
-## Available Scripts
+## Install Instruction 
+* At first download or clone Budget Tracker. Setup and configure the backend.
+* Considering the backend is up and running, now download or clone this repo.
+* Open terminal and cd into the directory.
+* Run npm i to install the dependencies.
+* Copy and save .env.example file as .env. Set API host in the .env file if necessary.
+* Finally run the app with npm start.
+* *The app should be running at http://localhost:3000
 
-In the project directory, you can run:
+## Tools Used
+1. React and React-Router
+2. Tailwind CSS
+3. Heroicons
+4. Headless UI
+5. Toast Container (for Pop-Ups) 
+6. Clerk (for Login Page)
+7. Drizzle ORM (for Neon i.e. PostgreSQL)
 
-### `npm start`
+Landing Page
+![Screenshot 2024-09-25 023837](https://github.com/user-attachments/assets/3ee33d49-9648-4209-a2d0-4dca5efea0a5)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Login Page
+![Screenshot 2024-09-25 023901](https://github.com/user-attachments/assets/45e78327-0df1-4530-a09a-2e920708181a)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Dashboard
+![Screenshot 2024-09-25 023932](https://github.com/user-attachments/assets/490d0620-9406-44fe-a6ee-e26d46ce5225)
 
-### `npm test`
+Budget Page
+![Screenshot 2024-09-25 023951](https://github.com/user-attachments/assets/1a5e6f9e-0dfc-48a6-9f4a-154448791a2c)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Create Budget Page
+![Screenshot 2024-09-25 024127](https://github.com/user-attachments/assets/fb2b75b5-9519-4333-9cf8-e95c03cbfd00)
 
-### `npm run build`
+Expenses Page
+![Screenshot 2024-09-25 024018](https://github.com/user-attachments/assets/9fd00e8d-6559-4384-9684-bfccd6c4654a)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Each Budget Individual Page
+![Screenshot 2024-09-25 024047](https://github.com/user-attachments/assets/5aecbac6-39ef-4f86-87d5-e1666c32c616)
