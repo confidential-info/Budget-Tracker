@@ -20,7 +20,7 @@ function Layout({children}) {
 
   useEffect(() => {
     user&&checkUserBudgets();
-  },[user]);
+  }, [user]);
   const checkUserBudgets = async () => {
     const result = await db.select().from(Budgets).where(eq(Budgets.createdBy,user?.primaryEmailAddress.emailAddress));
     if(result?.length===0)
